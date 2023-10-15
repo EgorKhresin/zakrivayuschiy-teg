@@ -123,6 +123,8 @@
 .card__button {
   display: flex;
   gap: 6px;
+  inline-size: 100%;
+  justify-content: end;
   justify-self: center;
   margin: 0 25px 25px 0;
 }
