@@ -14,25 +14,25 @@
 */
 
 .theme-menu__button:disabled {
-  pointer-events: none;
   opacity: 0.6;
+  pointer-events: none;
 }
 
 .theme-menu__button::after {
-  content: '';
-  background-color: var(--accent-color);
+  content: "";
   position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
   inset-block-end: -3px;
   block-size: 2px;
   inline-size: calc(100% - 6px);
   inset-inline-start: 6px;
-  transform-origin: left center;
-  transform: scaleX(0);
 }
 
 .theme-menu__button:focus-visible::after {
-  transform: scaleX(1);
   transition: transform 0.3s ease-out;
+  transform: scaleX(1);
 }
 
 .theme-menu__button:hover {
@@ -48,14 +48,13 @@
   to {
     inset-inline-start: -12px;
   }
-
 }
 
 .theme-menu__button:disabled::before {
+  content: "▶";
   position: absolute;
-  content: '▶';
+  animation: arrow ease-in-out 0.5s alternate-reverse infinite;
   inset-inline-start: -16px;
-  animation: arrow ease-in-out 0.5s alternate-reverse infinite ;
 }
 
 .theme-menu__button:focus-visible {
@@ -66,33 +65,33 @@
 
 .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+  transition: border 0.3s ease;
   inline-size: 39px;
   block-size: 38px;
-  transition: border 0.3s ease;
-  outline-offset: -2px;
 }
 
 .card__like-button:focus-visible {
-  outline: none;
   box-shadow: 2px 2px 0 0 var(--accent-color);
+  outline: none;
   transition: box-shadow 0.3s ease-out;
 }
 
 .card__like-button::after {
-  content: '';
-  background-color: var(--accent-color);
+  content: "";
   position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
   inset-block: 0;
   block-size: 100%;
   inline-size: 100%;
   inset-inline-start: 0;
-  transform-origin: left center;
-  transform: scaleX(0);
 }
 
 .card__like-button:hover:after {
-  transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
 }
 
 .card__like-button:hover {
@@ -101,25 +100,25 @@
 }
 
 .footer__button::after {
-  content: '';
-  background-color: var(--accent-color);
+  content: "";
   position: absolute;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left center;
   inset-block: 0;
   block-size: 100%;
   inline-size: 100%;
   inset-inline-start: 0;
-  transform-origin: left center;
-  transform: scaleX(0);
 }
 
 .footer__button:hover:after {
-  transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
 }
 
 .footer__button:focus-visible {
-  outline: none;
   box-shadow: 2px 2px 0 0 var(--accent-color);
+  outline: none;
   transition: box-shadow 0.3s ease-out;
 }
 
@@ -188,7 +187,8 @@
 }
 
 .like-icon.is-liked .heart {
-  animation: scale-animation 0.3s 0.1s ease-in;
+  transform-origin: center;
+  animation: scale-animation 0.3s 0.1s ease-in reverse;
 }
 
 @keyframes sparks-animation {
@@ -202,5 +202,5 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks-animation 0.3s 0.03s ease-in;
+  animation: sparks-animation 0.3s 0.03s ease-in reverse;
 }
