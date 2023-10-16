@@ -22,8 +22,9 @@
   color: var(--accent-color);
   font-family: var(--basic-font, sans-serif);
   font-style: normal;
-  background: var(--bg-color) var(--pattern) repeat;
-  background-size: 4px;
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+  background-size: cover;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-variation-settings: "wght" var(--regular-weight, 400);
@@ -110,6 +111,32 @@
   block-size: 100%;
 }
 
+.card__image-label {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  opacity: 0.5;
+  font-family: var(--accent-font);
+  font-weight: var(--regular-weight-accent);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px var(--bg-color);
+  inset-inline-end: 25px;
+  inset-block-start: 25px;
+  mix-blend-mode: hard-light;
+}
+
+@supports (text-stroke: 1px var(--bg-color)) or
+  (-webkit-text-stroke: 1px var(--bg-color)) {
+  .label {
+    text-shadow: none;
+    text-stroke: 1px var(--bg-color);
+    -webkit-text-stroke: 1px var(--bg-color);
+  }
+}
+
 .card__text {
   display: flex;
   flex-direction: column;
@@ -125,6 +152,7 @@
   justify-content: end;
   gap: 6px;
   margin: 0 25px 25px 0;
+  color: var(--text-animate-color);
   inline-size: 100%;
 }
 
@@ -145,6 +173,7 @@
   position: relative;
   align-self: end;
   border: 2px solid var(--accent-color);
+  color: var(--text-animate-color);
   background-color: var(--bg-color);
   cursor: pointer;
   inline-size: 130px;
@@ -154,10 +183,12 @@
 .button__text {
   position: relative;
   z-index: 1;
+  color: var(--text-animate-color);
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 12.6px;
   font-variation-settings: "wght" var(--regular-weight-accent, 400);
+  mix-blend-mode: difference;
 }
 
 .footer {
@@ -172,6 +203,7 @@
   gap: 8px;
   border: 2px solid var(--accent-color);
   padding: 13px 18px;
+  color: var(--text-animate-color);
   background-color: var(--bg-color);
   cursor: pointer;
   inline-size: 339px;
@@ -181,8 +213,10 @@
 .floppy {
   position: relative;
   z-index: 1;
+  color: var(--text-animate-color);
   inline-size: 21px;
   block-size: 21px;
+  mix-blend-mode: difference;
 }
 
 @media (width<= 376px) {
@@ -204,4 +238,87 @@
     inline-size: 28px;
     block-size: 28px;
   }
+  #label {
+    margin-inline: 17px;
+    inline-size: 341;
+  }
+
+  .button-label {
+    inline-size: 257px;
+  }
+}
+
+#label[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border: 2px solid var(--accent-color);
+  padding: 30px;
+  color: var(--accent-color);
+  background: var(--bg-color);
+  inline-size: 357px;
+}
+
+#label[open]::backdrop {
+  opacity: 0.75;
+  background-color: #000;
+}
+
+.information {
+  display: flex;
+  gap: 20px;
+}
+
+.text-label {
+  font-family: var(--accent-font);
+  font-weight: var(--regular-weight-accent);
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.floppy-label {
+  flex-shrink: 0;
+  align-self: center;
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.button-label {
+  color: var(--accent-color);
+  font-family: var(--accent-font);
+  font-weight: var(--regular-weight-accent);
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+  inline-size: 100%;
+  block-size: 38px;
+}
+
+.effect-picture-one {
+  filter: brightness(200%);
+}
+
+.effect-picture-two {
+  filter: sepia(80%);
+}
+
+.effect-picture-three {
+  filter: invert(0.7);
+}
+
+.effect-picture-four {
+  filter: contrast(75%);
+}
+
+.effect-picture-five {
+  filter: sepia(110%) contrast(1) brightness(125%);
+}
+
+.effect-picture-six {
+  filter: hue-rotate(-90deg);
+}
+
+.effect-picture-seven {
+  filter: grayscale(1);
 }
